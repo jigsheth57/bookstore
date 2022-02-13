@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <a href="/">Back</a>
+    <hr />
+    <table id="book-detail">
+        <tr>
+            <th>Title:</th>
+            <td th:text="${book.title}" />
+        </tr>
+        <tr>
+            <th>Author:</th>
+            <td th:text="${book.author}" />
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td th:text="${book.description}" />
+        </tr>
+    </table>
+</body>
+
+</html>

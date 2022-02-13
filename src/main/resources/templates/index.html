@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <table id="books">
+        <thead>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${books}">
+                <td>
+                    <a th:href="@{${book.title}}" th:text="${book.title}" />
+                </td>
+                <td th:text="${book.author}" />
+                <td th:text="${book.description}" />
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

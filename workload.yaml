@@ -1,0 +1,10 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: bookstore-test
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: bookstore-test
+spec:
+  source:
+    image: index.docker.io/jigsheth57/bookstore-test
