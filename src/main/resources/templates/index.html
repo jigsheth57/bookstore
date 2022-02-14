@@ -17,11 +17,13 @@
                 <td>
                     <a th:href="@{${book.title}}" th:text="${book.title}" />
                 </td>
-                <td th:text="${book.author}" />
+                <td th:text="${book.author.name}" />
                 <td th:text="${book.description}" />
             </tr>
         </tbody>
     </table>
+    <hr />
+    <a href="book-search.html">Search by book title</a>
 </body>
 
 </html>

@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Book Search</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <div>
+        <form method="POST" action="http://localhost:8080/api/books/search/findByTitleContaining" modelAttribute="book">
+            <label for="title">Title (*contains)</form:label>
+                <input type="text" id="title" name="title" placeholder="Book title.." />
+
+                <input type="submit" value="Search by book title" />
+        </form>
+    </div>
+</body>
+
+</html>

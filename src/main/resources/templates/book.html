@@ -15,7 +15,11 @@
         </tr>
         <tr>
             <th>Author:</th>
-            <td th:text="${book.author}" />
+            <td th:text="${book.author.name}" />
+        </tr>
+        <tr>
+            <th>Author's genre:</th>
+            <td th:text="${book.author.genre}" />
         </tr>
         <tr>
             <th>Description:</th>
