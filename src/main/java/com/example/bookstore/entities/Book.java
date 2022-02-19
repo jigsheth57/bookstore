@@ -25,7 +25,7 @@ public class Book {
     @Column(nullable = true)
     private String description;
 
-    protected Book() {
+    public Book() {
         super();
     }
 
