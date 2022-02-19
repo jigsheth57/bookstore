@@ -6,24 +6,31 @@
 </head>
 
 <body>
-    <table id="books">
-        <thead>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Description</th>
-        </thead>
-        <tbody>
-            <tr th:each="book : ${books}">
-                <td>
-                    <a th:href="@{${book.title}}" th:text="${book.title}" />
-                </td>
-                <td th:text="${book.author.name}" />
-                <td th:text="${book.description}" />
-            </tr>
-        </tbody>
-    </table>
-    <hr />
-    <a href="book-search.html">Search by book title</a>
+    <div>
+        <form method="POST" th:action="@{/book-search}">
+            <label for="title">Title (*contains)</label>
+            <input type="text" id="title" th:name="title" placeholder="Book title.." />
+            <input type="submit" value="Search by book title" />
+        </form:form>
+    </div>
+    <div>
+        <table id="books">
+            <thead>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td>
+                        <a th:href="@{${book.title}}" th:text="${book.title}" />
+                    </td>
+                    <td th:text="${book.author.name}" />
+                    <td th:text="${book.description}" />
+                </tr>
+            </tbody>
+        </table>    
+    </div>
 </body>
 
 </html>
