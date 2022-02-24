@@ -1,40 +1,52 @@
 <html>
-
-<head>
+  <head>
     <title>Book Store</title>
     <link rel="stylesheet" href="/css/main.css" />
-</head>
+  </head>
 
-<body>
-    <a id="hide1" href="#hide1" class="hide"><img src="/image/collaps.png"/> Book Search</a>
-    <a id="show1" href="#show1" class="show"><img src="/image/expand.png"/> Book Search</a>
+  <body>
+    <ul id="topnav">
+      <li id="topnav-li"><a class="active" href="#hide1">Home</a></li>
+      <li id="topnav-li"><a th:href="@{/}">Add Author</a></li>
+      <li id="topnav-li"><a th:href="@{/}">Add Book</a></li>
+    </ul>
+    <a id="hide1" href="#hide1" class="hide"
+      ><img src="/image/collaps.png" /> Book Search</a
+    >
+    <a id="show1" href="#show1" class="show"
+      ><img src="/image/expand.png" /> Book Search</a
+    >
     <div class="details">
-        <form action="#" method="POST" th:action="@{/}" th:object="${book}">
-            <label for="title">Title (*contains)</label>
-            <input type="text" id="title" th:name="title" placeholder="Book title.." />
-            <input type="submit" value="Search by book title" />
-        </form>
+      <form action="#" method="POST" th:action="@{/}" th:object="${book}">
+        <label for="title">Title (*contains)</label>
+        <input
+          type="text"
+          id="title"
+          th:name="title"
+          placeholder="Book title.."
+        />
+        <input type="submit" value="Search by book title" />
+      </form>
     </div>
     <div>
-        <table id="books">
-            <thead>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Description</th>
-                <th>&nbsp;</th>
-            </thead>
-            <tbody>
-                <tr th:each="book : ${books}">
-                    <td>
-                        <a th:href="@{${book?.title}}" th:text="${book?.title}" />
-                    </td>
-                    <td th:text="${book?.author?.name}" />
-                    <td th:text="${book?.description}" />
-                    <td><a th:href="@{'/remove-book'(id=${book?.id})}">Delete</a></td>
-                </tr>
-            </tbody>
-        </table>    
+      <table id="books">
+        <thead>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Description</th>
+          <th>&nbsp;</th>
+        </thead>
+        <tbody>
+          <tr th:each="book : ${books}">
+            <td>
+              <a th:href="@{${book?.title}}" th:text="${book?.title}" />
+            </td>
+            <td th:text="${book?.author?.name}" />
+            <td th:text="${book?.description}" />
+            <td><a th:href="@{'/remove-book'(id=${book?.id})}">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-</body>
-
+  </body>
 </html>

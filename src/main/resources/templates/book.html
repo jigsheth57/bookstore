@@ -1,50 +1,72 @@
 <html>
-
-<head>
+  <head>
     <title>Book Details</title>
     <link rel="stylesheet" href="/css/main.css" />
-</head>
+  </head>
 
-<body>
-    <a th:href="@{/}">Back</a>
-    <hr />
-    <a id="hide1" href="#hide1" class="hide"><img src="/image/collaps.png"/> Add Book</a>
-    <a id="show1" href="#show1" class="show"><img src="/image/expand.png"/> Add Book</a>
+  <body>
+    <ul id="topnav">
+      <li id="topnav-li"><a th:href="@{/}">Home</a></li>
+      <li id="topnav-li"><a th:href="@{/}">Add Author</a></li>
+      <li id="topnav-li"><a class="active" href="#hide1">Add Book</a></li>
+    </ul>
+    <a id="hide1" href="#hide1" class="hide"
+      ><img src="/image/collaps.png" /> Add Book</a
+    >
+    <a id="show1" href="#show1" class="show"
+      ><img src="/image/expand.png" /> Add Book</a
+    >
     <div class="details">
-        <form action="#" method="POST" th:action="@{/add-book}" th:object="${book}">
-            <label for="title">Title:</label>
-            <input type="text" id="title" th:name="title" placeholder="Book title.." />
-            <label for="description">Description:</label>
-            <input type="text" id="description" th:name="description" placeholder="Book description.." />
-            <label for="author">Author:</label>
-            <select id="author" th:name="author">
-                <option th:each="author : ${authors}"
-                        th:value="${author.id}"
-                        th:text="${author.name}"/>
-            </select>
-            <input type="submit" value="Add book" />
-        </form>
+      <form
+        action="#"
+        method="POST"
+        th:action="@{/add-book}"
+        th:object="${book}"
+      >
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          th:name="title"
+          placeholder="Book title.."
+        />
+        <label for="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          th:name="description"
+          placeholder="Book description.."
+        />
+        <label for="author">Author:</label>
+        <select id="author" th:name="author">
+          <option
+            th:each="author : ${authors}"
+            th:value="${author.id}"
+            th:text="${author.name}"
+          />
+        </select>
+        <input type="submit" value="Add book" />
+      </form>
     </div>
     <div>
-        <table id="book-detail">
-            <tr>
-                <th>Title:</th>
-                <td th:text="${book?.title}" />
-            </tr>
-            <tr>
-                <th>Author:</th>
-                <td th:text="${book?.author?.name}" />
-            </tr>
-            <tr>
-                <th>Author's genre:</th>
-                <td th:text="${book?.author?.genre}" />
-            </tr>
-            <tr>
-                <th>Description:</th>
-                <td th:text="${book?.description}" />
-            </tr>
-        </table>    
+      <table id="book-detail">
+        <tr>
+          <th>Title:</th>
+          <td th:text="${book?.title}" />
+        </tr>
+        <tr>
+          <th>Author:</th>
+          <td th:text="${book?.author?.name}" />
+        </tr>
+        <tr>
+          <th>Author's genre:</th>
+          <td th:text="${book?.author?.genre}" />
+        </tr>
+        <tr>
+          <th>Description:</th>
+          <td th:text="${book?.description}" />
+        </tr>
+      </table>
     </div>
-</body>
-
+  </body>
 </html>
