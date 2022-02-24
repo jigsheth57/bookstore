@@ -55,6 +55,10 @@ public class Book {
         this.id = id;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Author getAuthor() {
         return author;
     }

@@ -6,12 +6,14 @@
 </head>
 
 <body>
-    <div>
+    <a id="hide1" href="#hide1" class="hide"><img src="/image/collaps.png"/> Book Search</a>
+    <a id="show1" href="#show1" class="show"><img src="/image/expand.png"/> Book Search</a>
+    <div class="details">
         <form action="#" method="POST" th:action="@{/}" th:object="${book}">
             <label for="title">Title (*contains)</label>
             <input type="text" id="title" th:name="title" placeholder="Book title.." />
             <input type="submit" value="Search by book title" />
-        </form:form>
+        </form>
     </div>
     <div>
         <table id="books">
@@ -19,14 +21,16 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Description</th>
+                <th>&nbsp;</th>
             </thead>
             <tbody>
                 <tr th:each="book : ${books}">
                     <td>
-                        <a th:href="@{${book.title}}" th:text="${book.title}" />
+                        <a th:href="@{${book?.title}}" th:text="${book?.title}" />
                     </td>
-                    <td th:text="${book.author.name}" />
-                    <td th:text="${book.description}" />
+                    <td th:text="${book?.author?.name}" />
+                    <td th:text="${book?.description}" />
+                    <td><a th:href="@{'/remove-book'(id=${book?.id})}">Delete</a></td>
                 </tr>
             </tbody>
         </table>    

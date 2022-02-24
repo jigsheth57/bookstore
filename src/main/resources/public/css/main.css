@@ -73,4 +73,13 @@
     background-color: #f2f2f2;
     padding: 20px;
   }
-  
+
+.details,
+.show,
+.hide:target {
+  display: none;
+}
+.hide:target + .show,
+.hide:target ~ .details {
+  display: inherit;
+}

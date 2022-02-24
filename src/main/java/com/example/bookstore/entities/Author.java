@@ -22,7 +22,7 @@ public class Author {
     @OneToMany(mappedBy = "author")
     private List<Book> books;
 
-    protected Author() {
+    public Author() {
         super();
     }
 
